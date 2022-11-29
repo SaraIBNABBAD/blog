@@ -12,14 +12,16 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('settings', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('logo')->nullable();
-            $table->text('description')->nullable();
-            $table->string('contactinfo');
-            $table->foreignId('user_id')->constrained();
             $table->timestamps();
+            $table->string('message');
+            $table->string('name');
+            $table->date('commentDate');
+            $table->string('email');
+            $table->string('website')->nullable();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('post_id')->constrained()->cascadeOnDelete();
         });
     }
 
@@ -30,6 +32,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('settings');
+        Schema::dropIfExists('comment');
     }
 };
