@@ -21,6 +21,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'picture',
+        'role',
+        'active',
+        'verified',
+        'user_id',
     ];
 
     /**
@@ -41,4 +46,34 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    /**
+     * relationship methods
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+    public function setting()
+    {
+        return $this->hasOne(User::class);
+    }
+
+
+    public function commentReply()
+    {
+        return $this->hasMany(CommentReply::class);
+    }
+
+    public function postsLiked()
+    {
+        return $this->belongsToMany(Post::class, 'post_user');
+    }
 }
