@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->text('content');
             $table->text('picture')->nullable();
             $table->text('description');
-            $table->boolean('published');
+            $table->boolean('published')->default(false);
             $table->date('publicationDate')->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('category_id')->constrained('categories');

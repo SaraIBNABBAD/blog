@@ -21,10 +21,10 @@ return new class extends Migration {
             $table->enum('role', ['User', 'Admin', 'Editor'])->default('User');
             $table->boolean('active')->default(false);
             $table->boolean('verified')->default(false);
-            $table->rememberToken();
+            $table->rememberToken()->nullable();
             $table->timestamps();
             $table->timestamp('email_verified_at')->nullable();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->nullable()->constrained();
 
         });
     }
