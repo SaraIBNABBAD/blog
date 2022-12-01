@@ -1,5 +1,10 @@
+@font-face{
+    font-family:Charm ;
+    src: url(font/charm/Charm-Bold.ttf);
+}
 body{
     margin: 0;
+    
 }
 header{
     background-image: url(../img/plage.jpg);
@@ -8,10 +13,14 @@ header{
     background-position: center;
     background-size: cover;
     height: 100vh;
+    font-family: Charm;
+    font-size: 1em;
 }
 nav{
     border-bottom: 1px solid rgb(148, 148, 148);
-    
+}
+nav ul li{
+    font-size: 1.2em;
 }
 .icon{
     gap: 10px;
@@ -20,10 +29,8 @@ nav{
 h1{
     text-transform: uppercase;
 }
-.text{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    
+ p{
+    color: rgb(69, 233, 238);
+    font-size: 1.3em;
+    font-weight: 500;
 }
